@@ -1,68 +1,86 @@
 # DeepNVMe Experiments
-Using DeepNVMe for simple file reads and writes involving CPU/GPU tensors
 
-## Getting Started 
-Clone the DeepSpeedExamples repo
-```sh
-git clone https://github.com/deepspeedai/DeepSpeedExamples.git
+A collection of experiments demonstrating simple file reads and writes involving CPU/GPU tensors using DeepNVMe.
 
-# cd into scripts folder
-cd DeepSpeedExamples/deepnvme/file_access
-```
+## Overview
 
+This project provides scripts to benchmark and experiment with DeepNVMe for high-performance storage access with both CPU and GPU tensors.
 
-## Install the dependencies
-## Setup 
-```sh 
-pip install deepspeed 
+## Prerequisites
 
-#If `async_io` operator is unavailable, you will need to install the appropriate libaio library binaries for your Linux flavor. For example, Ubuntu users will need to run apt install libaio-dev
-sudo apt update
-sudo apt install libaio-dev
+- Python 3.10+
+- Linux (tested on Ubuntu)
+- [DeepSpeed](https://www.deepspeed.ai/)
+- (Optional, for GPU tests) NVIDIA GPU with GPUDirect Storage support
+- `libaio` development libraries
 
-#gds (only for GPU related tests)
-https://docs.nvidia.com/gpudirect-storage/troubleshooting-guide/index.html 
-TBD...
+## Setup
 
-# to check that compatible status 
-ds_report
-```
+1. **Clone the Repository**
+    ```sh
+    git clone https://github.com/deepspeedai/DeepSpeedExamples.git
+    cd DeepSpeedExamples/deepnvme/file_access
+    ```
 
-## Start the experiments
+2. **Install Dependencies**
+    ```sh
+    pip install deepspeed
+    sudo apt update
+    sudo apt install libaio-dev
+    ```
+    > **Note:** If the `async_io` operator is unavailable, ensure `libaio-dev` is installed.
 
-```sh
-# create dirs
-mkdir -p py_out aio_out
+3. **(Optional) GPUDirect Storage**
+    - For GPU-related tests, follow the [NVIDIA GDS troubleshooting guide](https://docs.nvidia.com/gpudirect-storage/troubleshooting-guide/index.html).
 
-# before running the script commment the last line int the script to save the files other wise it seems to get unlinked - L:23
-python py_store_cpu_tensor.py --nvme_folder py_out  
-python py_load_cpu_tensor.py --input_file py_out/test_ouput_1024MB.pt
-```
+4. **Check DeepSpeed Installation**
+    ```sh
+    ds_report
+    ```
 
-## aio cpu
-Note: One the first run There seems to run some compilation.
-```sh
-# before running the script commment the last line int the script to save the files other wise it seems to get unlinked -  L:44
-python aio_store_cpu_tensor.py --nvme_folder aio_out  
-python aio_load_cpu_tensor.py --input_file aio_out/test_ouput_1024MB.pt
-```
+## Running Experiments
 
+1. **Prepare Output Directories**
+    ```sh
+    mkdir -p py_out aio_out
+    ```
+
+2. **CPU Tensor File Operations**
+    - **Store Tensor:**
+        ```sh
+        python py_store_cpu_tensor.py --nvme_folder py_out
+        ```
+    - **Load Tensor:**
+        ```sh
+        python py_load_cpu_tensor.py --input_file py_out/test_ouput_1024MB.pt
+        ```
+    > **Tip:** Comment out the last line in the script to prevent the file from being unlinked (see script, e.g., line 23).
+
+3. **AIO CPU Tensor File Operations**
+    - **Store Tensor:**
+        ```sh
+        python aio_store_cpu_tensor.py --nvme_folder aio_out
+        ```
+    - **Load Tensor:**
+        ```sh
+        python aio_load_cpu_tensor.py --input_file aio_out/test_ouput_1024MB.pt
+        ```
+    > **Note:** The first run may trigger compilation.  
+    > **Tip:** Comment out the last line in the script to prevent the file from being unlinked (see script, e.g., line 44).
 
 ## Performance Tuning
-Ref: https://www.deepspeed.ai/tutorials/deepnvme/?utm_source=chatgpt.com#performance-tuning 
-`ds_nvme_tune` automatically explores a user-specified or default configuration space and recommends the option that provides the best read and write performance 
+
+Use `ds_nvme_tune` to automatically find optimal NVMe settings:
 
 ```sh
-# create dir
 mkdir -p local_nvme
-
-# cpu 
-ds_nvme_tune --nvme_dir local_nvme
-
-# gpu
-ds_nvme_tune --nvme_dir local_nvme --gpu
+ds_nvme_tune --nvme_dir local_nvme         # For CPU
+ds_nvme_tune --nvme_dir local_nvme --gpu   # For GPU
 ```
 
-## References: 
-1. https://github.com/deepspeedai/DeepSpeedExamples/tree/master/deepnvme/file_access
-2. https://www.deepspeed.ai/tutorials/deepnvme
+See the [DeepSpeed DeepNVMe tutorial](https://www.deepspeed.ai/tutorials/deepnvme/?utm_source=chatgpt.com#performance-tuning) for more details.
+
+## References
+
+- [DeepSpeedExamples: deepnvme/file_access](https://github.com/deepspeedai/DeepSpeedExamples/tree/master/deepnvme/file_access)
+- [DeepSpeed DeepNVMe Tutorial](https://www.deepspeed.ai/tutorials/deepnvme)
