@@ -7,7 +7,7 @@ Clone the DeepSpeedExamples repo
 git clone https://github.com/deepspeedai/DeepSpeedExamples.git
 
 # cd into scripts folder
-cd DeepSpeedExamples
+cd DeepSpeedExamples/deepnvme/file_access
 ```
 
 
@@ -17,10 +17,12 @@ cd DeepSpeedExamples
 pip install deepspeed 
 
 #If `async_io` operator is unavailable, you will need to install the appropriate libaio library binaries for your Linux flavor. For example, Ubuntu users will need to run apt install libaio-dev
+sudo apt update
 sudo apt install libaio-dev
 
-#gds 
+#gds (only for GPU related tests)
 https://docs.nvidia.com/gpudirect-storage/troubleshooting-guide/index.html 
+TBD...
 
 # to check that compatible status 
 ds_report
@@ -32,14 +34,15 @@ ds_report
 # create dirs
 mkdir -p py_out aio_out
 
-# before running the script commment the last line int the script to save the files other wise it seems to get unlinked
+# before running the script commment the last line int the script to save the files other wise it seems to get unlinked - L:23
 python py_store_cpu_tensor.py --nvme_folder py_out  
 python py_load_cpu_tensor.py --input_file py_out/test_ouput_1024MB.pt
 ```
 
 ## aio cpu
+Note: One the first run There seems to run some compilation.
 ```sh
-# before running the script commment the last line int the script to save the files other wise it seems to get unlinked
+# before running the script commment the last line int the script to save the files other wise it seems to get unlinked -  L:44
 python aio_store_cpu_tensor.py --nvme_folder aio_out  
 python aio_load_cpu_tensor.py --input_file aio_out/test_ouput_1024MB.pt
 ```
