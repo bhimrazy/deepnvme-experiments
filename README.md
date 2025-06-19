@@ -6,7 +6,7 @@ A collection of experiments demonstrating simple file reads and writes involving
 
 This project guides you through running and experimenting with DeepNVMe for high-performance storage access using both CPU and GPU tensors. The scripts referenced here are cloned from the official DeepSpeedExamples repository.
 
-![image](https://github.com/user-attachments/assets/384e86c4-0aa8-413a-b387-6e9fee80b771)
+<img width="1330" alt="image" src="https://github.com/user-attachments/assets/91f35288-cce3-487c-9a7b-aa37b062c4ad" />
 
 > **Note:** The above [results](https://docs.google.com/spreadsheets/d/1Ffdm-IOCCDXg_fLR1EK9hhPAUeI3LFo1pZ87YuDK_K8/edit?usp=sharing) were obtained from experiments conducted on [Lightning AI Studios](https://lightning.ai/). More updates and results will be added soon.
 
