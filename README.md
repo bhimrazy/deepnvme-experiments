@@ -8,7 +8,7 @@ This project guides you through running and experimenting with DeepNVMe for high
 
 ![image](https://github.com/user-attachments/assets/384e86c4-0aa8-413a-b387-6e9fee80b771)
 
-> **Note:** The above results were obtained from experiments conducted on [Lightning AI Studios](https://lightning.ai/). More updates and results will be added soon.
+> **Note:** The above [results](https://docs.google.com/spreadsheets/d/1Ffdm-IOCCDXg_fLR1EK9hhPAUeI3LFo1pZ87YuDK_K8/edit?usp=sharing) were obtained from experiments conducted on [Lightning AI Studios](https://lightning.ai/). More updates and results will be added soon.
 
 ## Prerequisites
 
