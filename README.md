@@ -6,6 +6,9 @@ A collection of experiments demonstrating simple file reads and writes involving
 
 This project guides you through running and experimenting with DeepNVMe for high-performance storage access using both CPU and GPU tensors. The scripts referenced here are cloned from the official DeepSpeedExamples repository.
 
+![image](https://github.com/user-attachments/assets/384e86c4-0aa8-413a-b387-6e9fee80b771)
+
+
 ## Prerequisites
 
 - Python 3.10+
@@ -37,6 +40,8 @@ This project guides you through running and experimenting with DeepNVMe for high
     ```sh
     ds_report
     ```
+    ![image](https://github.com/user-attachments/assets/38a25e27-79ea-433b-8fff-edda261a8d4f)
+
 
 ## Running Experiments
 
