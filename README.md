@@ -4,7 +4,7 @@ A collection of experiments demonstrating simple file reads and writes involving
 
 ## Overview
 
-This project provides scripts to benchmark and experiment with DeepNVMe for high-performance storage access with both CPU and GPU tensors.
+This project guides you through running and experimenting with DeepNVMe for high-performance storage access using both CPU and GPU tensors. The scripts referenced here are cloned from the official DeepSpeedExamples repository.
 
 ## Prerequisites
 
