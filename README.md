@@ -8,8 +8,7 @@ This project guides you through running and experimenting with DeepNVMe for high
 
 <img width="1330" alt="image" src="https://github.com/user-attachments/assets/91f35288-cce3-487c-9a7b-aa37b062c4ad" />
 
-> **Note:** The above [results](https://docs.google.com/spreadsheets/d/1Ffdm-IOCCDXg_fLR1EK9hhPAUeI3LFo1pZ87YuDK_K8/edit?usp=sharing) were obtained from experiments conducted on [Lightning AI Studios](https://lightning.ai/). More updates and results will be added soon.
-
+> **Note:** The above [results](https://docs.google.com/spreadsheets/d/1Ffdm-IOCCDXg_fLR1EK9hhPAUeI3LFo1pZ87YuDK_K8/edit?usp=sharing) were obtained from experiments conducted on [Lightning AI Studios](https://lightning.ai/).
 ## Prerequisites
 
 - Python 3.10+
